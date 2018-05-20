@@ -44,7 +44,6 @@
 				// top position relative to the document
 				
 				//animate top scrolling
-				console.log();
 				setTimeout(function(){
 					var position = $(id).offset().top;
 					$('body, html').animate({scrollTop: position});
