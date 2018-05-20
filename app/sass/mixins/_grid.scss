@@ -1,0 +1,45 @@
+/***********************************************************/
+/* GRID SYSTEM
+/***********************************************************/
+
+$margin: 0%;
+
+@for $cols from 2 through 4 {
+	$span: $cols;
+	@while $span > 0 {
+		@if ($span == $cols) {
+			.span_#{$span}_of_#{$cols} { width: 100%; }
+		} @else {
+			.span_#{$span}_of_#{$cols} { width: decimal-round( (((100 - ($margin * ($cols - 1))) / $cols) * $span) + (($span - 1) * $margin) , 2, 'floor'); }
+		}
+		$span: $span - 1;
+	}
+}
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+.col {
+	display: block;
+	float:left;
+	/*margin: 1% 0 1% 0%;*/
+	&:first-child { margin-left: 0; }
+}
+.group{
+	zoom:1; /* For IE 6/7 */
+	&:before,&:after{
+		content:"";
+		display:table;
+	}
+	&:after{
+		clear:both;
+	}
+}
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 720px) {
+	/*.col { margin: 1% 0 1% 0%; }*/
+	.span_1_of_2, .span_2_of_2, .span_1_of_3, .span_2_of_3, .span_3_of_3, .span_1_of_4, .span_2_of_4, .span_3_of_4, .span_4_of_4{
+		width: 100%;
+	}
+}

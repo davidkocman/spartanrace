@@ -1,0 +1,19 @@
+{
+	"name": "David Kocman",
+	"short_name": "d.kocman",
+	"start_url": "./",
+	"orientation": "portrait-primary",
+	"background_color": "#fff",
+	"lang": "sk",
+	"description": "",
+	"icons":
+	[{
+		"src": "images/spartan250x250.png",
+		"sizes": "250x250",
+		"type": "image/png"
+	}],
+	"related_applications":
+	[{
+		"platform": "https://www.spartan.sk"
+	}]
+}

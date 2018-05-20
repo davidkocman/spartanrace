@@ -1,0 +1,456 @@
+@import "mixins/reset";
+@import "mixins/fonts";
+@import "mixins/decimal";
+@import "mixins/grid";
+
+/***********************************************************/
+/* CORE STYLES
+/***********************************************************/
+html,body{
+	height: 100%;
+	background-image: url('../images/patern.png');
+	background-repeat: repeat-y;
+	background-size: cover;
+}
+.modal{
+	position: fixed;
+    width: 25rem;
+    top: -5rem;
+    left: 50%;
+    z-index: 99;
+    padding: 1rem;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    transition: top .5s ease;
+	background-color: #fff;
+	font-family: $SoL;
+	font-size: 2rem;
+	&.error{
+		border: 2px solid #c8161d;
+		h4{
+			color: #c8161d;
+		}
+	}
+	&.success{
+		border: 2px solid green;
+		h4{
+			color: green;
+		}
+	}
+	&.modalShown{top:5rem}
+}
+#header{
+	background-image: url('../images/header1.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	overflow: visible;
+	.zdravie img{
+		max-width: 30%;
+	}
+	.header-content{
+		width: 60%;
+		margin: -3rem auto 0;
+		.spartan_logo img{
+			max-width: 100%;
+			height: auto;
+		}
+		.text-section{
+			margin-top: 4rem;
+			.h01{
+				text-align: center;
+				h1{
+					color: #ffffff;
+					font-size: 3rem;
+					text-transform: uppercase;
+					background-color: #c8161d;
+					font-family: "poleno-medium";
+					letter-spacing: 3px;
+					display: inline-block;
+					margin: .5rem auto;
+					padding: .4rem .5rem;
+					a{
+						text-decoration: none;
+						color: #ffffff;
+					}
+				}
+			}
+			.down-arrow img{
+				margin: 1rem auto;
+				max-width: 100%;
+				height: auto;
+				display: block;
+			}
+			.splash{
+				background-image: url(../images/splash1.png);
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: center top;
+				color: #ffffff;
+				width: 35rem;
+				top: -5.5rem;
+				right: .5rem;
+				position: relative;
+				margin: 0 auto;
+				padding: 13rem 0rem 8rem;
+				text-align: center;
+				h1,h4{color: #ffffff;}
+				h1{
+					text-transform: uppercase;
+					font-family: $PoB;
+					font-size: 6rem;
+					padding-left: 2rem;
+				}
+				h4{
+					margin-top: 1rem;
+					font-size: 1.8rem;
+					font-family: $SoL;
+					font-weight: 100;
+					padding-left: 2rem;
+				}
+				.splash-content{
+					width: 25rem;
+					margin: 0 auto;
+					text-align: center;
+					
+				}
+				.splash-footer{
+					color: #ffffff;
+					background-color: #c8161d;
+					h4{
+						width: auto;
+						padding: 0;
+					}
+				}
+			}
+		}
+	}
+}
+#site-body{
+	h1{
+		color: #c8161d;
+		text-transform: uppercase;
+		font-family: $PoB;
+		font-size: 4rem;
+		text-align: center;
+	}
+	.site-content{
+		width: 60%;
+		text-align: center;
+		&.steps{
+			margin: 2rem auto 0;
+			padding-bottom: 5rem;
+			border-bottom: 2px #ffffff dashed;
+			.step{
+				position: relative;
+				transition: .2s ease all;
+				label{cursor: pointer;}
+				input[type=radio]{
+					visibility: hidden;
+				}
+				&:hover p{color: #c8161d;}
+				&:hover span{color: #ffffff;}
+				&:hover .circle{
+					background-color: #c8161d;
+					color: #ffffff;
+				}
+				&.selected{
+					p{color: #c8161d;}
+					span{color: #ffffff;}
+					.circle{
+						background-color: #c8161d;
+						color: #ffffff;
+					}
+				}
+				.circle{
+					margin: 0 auto;
+					width: 6rem;
+					height: 6rem;
+					background-color: #ffffff;
+					border-radius: 50%;
+					text-align: center;
+					display: table;
+					transition: .2s ease all;
+					span{
+						display: table-cell;
+						vertical-align: middle;
+						font-family: $PoB;
+						font-size: 2.5rem;
+						position: relative;
+					}
+				}
+				&:nth-child(2), &:nth-child(4){
+					&:before{
+						content: url('../images/step1.png');
+						display: block;
+						position: absolute;
+						left: -3.5rem;
+						top: 4rem;
+					}
+				}
+				&:nth-child(3){
+					&:before{
+						content: url('../images/step2.png');
+						display: block;
+						position: absolute;
+						left: -3.5rem;
+						top: 4rem;
+					}
+				}
+				p{
+					text-align: center;
+					font-family: $SoL;
+					line-height: 1.5rem;
+					margin-top: 1rem;
+				}
+			}
+		}
+	}
+}
+#events{
+	h1{
+		color: #c8161d;
+		text-transform: uppercase;
+		font-family: $PoB;
+		font-size: 4rem;
+		text-align: center;
+	}
+	.site-content{
+		width: 60%;
+		text-align: center;
+		&.runs{
+			margin: 0 auto;
+			padding-bottom: 5rem;
+			.grid{
+				display: flex;
+  				flex-wrap: wrap;
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+				grid-gap: 1rem;
+			}
+			h3{
+				color: #c8161d;
+				font-size: 2rem;
+				font-family: $SoB;
+				font-weight: 100;
+				margin: 3rem auto;
+			}
+			.run{
+				display: inline-block;
+				border: 1px solid #000000;
+				border-radius: 5px;
+				text-align: center;
+				position: relative;
+				padding: 1.5rem;
+				cursor: pointer;
+				transition: .2s ease all;
+				span{
+					font-family: $SoL;
+				}
+				h2{
+					font-family: $PoM;
+					font-size: 1.5rem;
+					line-height: 1;
+					font-weight: 100;
+					text-transform: uppercase;
+					&.price{
+						color: #c8161d;
+					}
+				}
+				&:after{
+					content: '';
+					clear: both;
+				}
+				&.zdr{
+					&:before{
+						content: url('../images/preZdravie.png');
+						display: block;
+						position: absolute;
+						left: -1.5rem;
+						top: -1rem;
+					}
+				}
+				&:hover,&.picked{
+					background-color: #c8161d;
+					border: 1px solid #ffffff;
+					h2,span{
+						color: #ffffff;
+					}
+				}
+			}
+		}
+	}
+}
+
+#contact{
+	.site-content{
+		text-align: center;
+		width: 60%;
+		h3{
+			color: #c8161d;
+			font-size: 2rem;
+			font-family: $SoB;
+			font-weight: 100;
+			margin: 3rem auto;
+		}
+		&.data{
+			margin: 0 auto;
+			padding-bottom: 5rem;
+			input{
+				width: 90%;
+				font-size: 2rem;
+				text-align: center;
+				border-radius: 4px;
+				border: 1px solid #999999;
+				margin-bottom: 1.5rem;
+				&#street, &#city{
+					width: 58%;
+				}
+				&#str-no, &#zip{
+					width: 30%;
+				}
+				&.error{
+					border: 1px solid #c8161d;
+				}
+			}
+			.form-wrapper{
+				&.right-side{
+					border-left: 2px solid #ffffff;
+				}
+				button{
+					width: 90%;
+					font-size: 2rem;
+					text-align: center;
+					font-family: $SoL;
+					cursor: pointer;
+					background-color: #c8161d;
+					color: #ffffff;
+					border: none;
+					border-radius: 4px;
+				}
+			}
+		}
+	}
+}
+
+#voucher{
+	background-image: url('../images/mud.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center top;
+	padding-bottom: 5rem; 
+	.site-content{
+		text-align: center;
+		width: 100%;
+		h3{
+			color: #c8161d;
+			font-size: 2rem;
+			font-family: $SoB;
+			font-weight: 100;
+			margin: 3rem auto;
+		}
+		p{
+			font-family: $SoL;
+			color: #3d371f;
+			a{
+				color: #c8161d;
+				text-decoration: none;
+			}
+			&.info{
+				display: inline-block;
+				padding: 0 1rem;
+				color: #ffffff;
+				background-color: #c8161d;
+				a{
+					color: inherit;
+				}
+			}
+		}
+		.voucher-code,
+		.data-first{
+			display: inline-block;
+			margin: 0 auto;
+			padding: 0 1rem;
+			font-family: $SoB;
+			color: #c8161d;
+			font-size: 2rem;
+			line-height: 3rem;
+			border: 2px solid #c8161d;
+			border-radius: 4px;
+		}
+		.voucher-code{display: none;}
+	}
+}
+
+#magazine{
+	padding-bottom: 4rem;
+	background-image: url('../images/magazine-bg2.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	.site-content{
+		text-align: center;
+		width: 100%;
+		h3{
+			color: #c8161d;
+			font-size: 2rem;
+			font-family: $SoB;
+			font-weight: 100;
+			margin: 3rem auto;
+		}
+		h2{
+			font-family: $SoB;
+			font-size: 2.2rem;
+			color: #3d371f;
+			position: relative;
+			&:after{
+				content: url('../images/zdravie.png');
+				display: inline-block;
+				position: absolute;
+				top: -2rem;
+			}
+		}
+		.bring-with{
+			display: inline-block;
+			img{
+				float: right;
+				margin-right: 5%;
+			}
+		}
+	}
+}
+
+#footer{
+	background-color: #ffffff;
+	h4{
+		text-align: center;
+		font-size: 1rem;
+		letter-spacing: .3rem;
+		font-weight: 100;
+		font-family: $SoL;
+		color: #17334d;
+	}
+	.site-content{
+		width: 60%;
+		margin: 0 auto;
+		padding: 5rem 0 2rem;
+		position: relative;
+		border-bottom: 1px solid #d3deeb;
+		.third{
+			width: 95%;
+			margin: 0 auto;
+		}
+		&:before{
+			content: url('../images/zdraviesk.png');
+			display: inline-block;
+			position: absolute;
+			top: 0;
+		}
+		p{
+			line-height: 1.5rem;
+			font-family: $SoL;
+			font-size: 1.5rem;
+		}
+		
+	}
+}
+@import "mixins/media";

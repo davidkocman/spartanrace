@@ -1,0 +1,21 @@
+@import "font-face";
+
+//@include font-face("font-awesome", "../fonts/Font Awesome/polenoaltbold", normal, normal, ttf eot svg woff woff2 otf);
+
+@include font-face("poleno-bold", "../fonts/Poleno/polenoaltbold", normal, normal, otf);
+@include font-face("poleno-medium", "../fonts/Poleno/polenoaltmedium", normal, normal, otf);
+@include font-face("poleno-black", "../fonts/Poleno/polenoblack", normal, normal, otf);
+
+@include font-face("solido-bold", "../fonts/Solido/solidobold", normal, normal, otf);
+@include font-face("solido-book", "../fonts/Solido/solidobook", normal, normal, otf);
+@include font-face("solido-light", "../fonts/Solido/solidolight", normal, normal, otf);
+
+$PoB:   'poleno-bold';
+$PoM:	'poleno-medium';
+$PoBl:	'poleno-black';
+
+$SoB:   'solido-bold';
+$SoBook:'solido-book';
+$SoL:   'solido-light';
+
+//$FA:	'FontAwesome';

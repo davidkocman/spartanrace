@@ -1,0 +1,61 @@
+@media only screen and (max-width:1400px) {
+	html {font-size: 15px;}
+	#site-body .site-content.steps .step:nth-child(2):before,
+	#site-body .site-content.steps .step:nth-child(3):before,
+	#site-body .site-content.steps .step:nth-child(4):before{
+		display: none;
+	}
+}
+/***********************************************************/
+/* 1024px
+/***********************************************************/
+@media only screen and (max-width:1024px) {
+	html {font-size: 14px;}
+	#magazine .site-content h2:after{
+		display: none;
+	}
+	#header .header-content,
+	#site-body .site-content,
+	#events .site-content,
+	#contact .site-content,
+	#footer .site-content{
+		width: 95%;
+	}
+}
+
+/***********************************************************/
+/* 720px
+/***********************************************************/
+@media only screen and (max-width:720px) {
+	html {font-size: 12px;}
+	#site-body .site-content.steps .step{
+		margin-bottom: 2rem;
+	}
+	#contact .site-content.data .form-wrapper.right-side{
+		border: none;
+	}
+	#footer .site-content .col{
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+}
+
+/***********************************************************/
+/* 640px
+/***********************************************************/
+@media only screen and (max-width:640px) {
+	html {font-size: 10px;}
+	#events .site-content.runs .run.zdr:before{
+		top: -15%;
+	}
+}
+
+/***********************************************************/
+/* 500px
+/***********************************************************/
+@media only screen and (max-width: 500px){
+	html {font-size: 8px;}
+	#footer .site-content{
+		padding: 7rem 0 2rem;
+	}
+}
