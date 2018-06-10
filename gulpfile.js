@@ -7,21 +7,23 @@
 //			Installation:
 //			'npm install [package-name] --save-dev'
 //			'npm install @types/node --save-dev'
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var autoprefixer = require('gulp-autoprefixer');
-var useref = require('gulp-useref');                    // optimizing  files from multiple folders
-var uglify = require('gulp-uglify');                    // minify js
-var gulpIf = require('gulp-if');                        // only declared files
-var cssnano = require('gulp-cssnano');                  // minify css
-var imagemin = require('gulp-imagemin');                // optimizing image files
-var cache = require('gulp-cache');
-var jshint = require('gulp-jshint');                    // js error checking
-var stylish = require('jshint-stylish');                //better reporter for jshint
-var browserSync = require('browser-sync').create();
-var del = require('del');                               // cleaning files that are no longer used
-var runSequence = require('run-sequence');              // run tasks in sequence. Tasks in array runs simultaneously
+
+var gulp 			= require('gulp');					// the brain of this file
+var sass 			= require('gulp-sass');				// sass/scss - file preprocesor
+var sourcemaps 		= require('gulp-sourcemaps');
+var autoprefixer 	= require('gulp-autoprefixer');		// css vendor prefixing
+var useref 			= require('gulp-useref');			// optimizing  files from multiple folders
+var uglify 			= require('gulp-uglify');			// minify js
+var gulpIf 			= require('gulp-if');				// only declared files
+var cssnano 		= require('gulp-cssnano');			// minify css
+var imagemin 		= require('gulp-imagemin');			// optimizing image files
+var cache 			= require('gulp-cache');
+var jshint 			= require('gulp-jshint');			// js error checking
+var stylish 		= require('jshint-stylish');		// better reporter for jshint
+var browserSync 	= require('browser-sync').create();	// browser syncing
+var del 			= require('del');					// cleaning files that are no longer used
+var runSequence 	= require('run-sequence');			// run tasks in sequence. Tasks in array runs simultaneously
+var wait 			= require('gulp-wait');				// fix for sass mixins not being precessed
 
 /*
 // ***** VARS & VALS
@@ -41,9 +43,13 @@ var sassOptions = {
 	errLogToConsole: true,
 	outputStyle: 'expanded'
 };
-var prefixerOptions = {
-	browsers: ['last 2 version', 'Firefox 14', 'safari 5', 'ie 6', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4']
-};
+
+
+/*
+// ***** Development TASKS *****
+// -----------------------------
+*/
+
 
 /*
 // TASK: syncs brownser
@@ -57,27 +63,18 @@ gulp.task('browserSync', function() {
 });
 
 
-
-/*
-// ***** Development TASKS *****
-// -----------------------------
-*/
-
-
-
 /*
 // task: SASS compile with autoprefixer and browser synchron
 */
-gulp.task('sass', function(){
-  return gulp
-	.src(sassFiles)
-	.pipe(sass(sassOptions).on('error', sass.logError))
+gulp.task('sass', function () {
+	return gulp.src(sassFiles)
+	.pipe(wait(100))
+	.pipe(sourcemaps.init())
+	.pipe(sass({errLogToConsole: true,outputStyle: 'compressed'}))
+	.pipe(autoprefixer({browsers: ['last 2 versions', '> 5%', 'Firefox ESR']}))
 	.pipe(sourcemaps.write())
-	.pipe(autoprefixer(prefixerOptions))
 	.pipe(gulp.dest(cssOutput))
-	.pipe(browserSync.reload({
-		stream: true
-	}));
+	.pipe(browserSync.stream());
 });
 
 /*

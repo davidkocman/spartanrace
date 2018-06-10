@@ -11,8 +11,8 @@
 				contact 	= $('#contact'),
 				voucher		= $('#voucher'),
 				magazine	= $('#magazine');
-			var sections = [events, contact, voucher, magazine];
-			var selectedId = $(this).data('id');
+			var sections 	= [events, contact, voucher, magazine];
+			var selectedId 	= $(this).data('id');
 
 			for(var i = 0; i < sections.length; i++){
 				$('#' + selectedId).fadeIn();
